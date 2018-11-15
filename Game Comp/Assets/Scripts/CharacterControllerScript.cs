@@ -6,35 +6,88 @@ public class CharacterControllerScript : MonoBehaviour {
 
 	public float maxSpeed = 10f;
 	bool facingRight = true;
-	Animator animator;
+    bool grounded = false;
+    public Transform groundCheck;
+    float groundRadius = 0.2f;
+    public LayerMask whatIsGround;
+    Rigidbody2D rigidbody2D;
+    public float jumpForce = 700f;
+    bool usedDoubleJump = false;
+    Animator animator;
 
-	// Use this for initialization
 	void Start () {
-		animator = GetComponent<Animator>();
-	}
+	
+        animator = GetComponent<Animator>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
+    }
 
-	// Update is called once per frame
-	// void Update () {
-	//
-	// }
+
+    // trying to find the values for setting the jump animation
+    bool debug = true;
+    float lowestVertical = 0;
+    float highestVertcal = 0;
+
 
 	void FixedUpdate () {
-		float move = Input.GetAxis("Horizontal");
-
-        animator.SetFloat("speed", Mathf.Abs(move));
 
 
-        GetComponent<Rigidbody2D>().velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
-		if(move > 0 && !facingRight){
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+
+        if(grounded){
+            usedDoubleJump = false;
+        }
+
+
+        animator.SetBool("Ground", grounded);
+
+        // how fast are we moving up or down
+        animator.SetFloat("vSpeed", rigidbody2D.velocity.y);
+
+        float move = Input.GetAxis("Horizontal");
+        animator.SetFloat("Speed", Mathf.Abs(move));
+
+        rigidbody2D.velocity = new Vector2(move * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+       
+        if(NeedsFlip(move)){
 			Flip();
-		}
-		else if(move < 0 && facingRight){
-				Flip();
 		}
 	}
 
+    private void Update() {
+
+
+        // just doing this to get some values.
+        if (debug){
+            float currentV= rigidbody2D.velocity.y;
+            if(currentV> highestVertcal){
+                highestVertcal = currentV;
+            }
+            if (currentV < lowestVertical){
+                lowestVertical = currentV;
+            }
+
+            Debug.Log("highest v=" + highestVertcal +" lowest v=" + lowestVertical);
+        }
+
+        if ((grounded || !usedDoubleJump) && Input.GetKeyDown(KeyCode.Space)){
+            animator.SetBool("Ground", false);
+            rigidbody2D.AddForce(new Vector2(0, jumpForce));
+        
+            if(!usedDoubleJump && !grounded){
+                usedDoubleJump = true;
+            }
+        }
+    }
+
+
+    bool NeedsFlip(float move){
+
+        return (move > 0 && !facingRight)|| (move < 0 && facingRight);
+    }
+
 	void Flip(){
-		facingRight = !facingRight;
+	
+        facingRight = !facingRight;
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;

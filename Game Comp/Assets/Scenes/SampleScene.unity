@@ -289,7 +289,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1372055504
 GameObject:
@@ -390,7 +390,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1454453955
 GameObject:
@@ -403,7 +403,7 @@ GameObject:
   m_Layer: 18
   m_Name: groundCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -519,7 +519,7 @@ Transform:
   m_Children:
   - {fileID: 1454453956}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1464128240
 BoxCollider2D:
@@ -591,8 +591,78 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 10
+  jumpForce: 700
   groundCheck: {fileID: 1454453956}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4151
-  jumpForce: 700
+--- !u!1 &1736328191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1116900248984994, guid: 45545e962e890486eb0456a245195f2a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1903042819}
+--- !u!114 &1736328192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1736328191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afecf52aefe36401299e8e9d8c9ba56a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minGroundNormalY: 0.65
+  gravityModifier: 0.5
+  maxSpeed: 7
+  jumpTakeOffSpeed: 7
+--- !u!1001 &1903042819
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4566797654940672, guid: 45545e962e890486eb0456a245195f2a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.1082134
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566797654940672, guid: 45545e962e890486eb0456a245195f2a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.1155684
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566797654940672, guid: 45545e962e890486eb0456a245195f2a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566797654940672, guid: 45545e962e890486eb0456a245195f2a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566797654940672, guid: 45545e962e890486eb0456a245195f2a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566797654940672, guid: 45545e962e890486eb0456a245195f2a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566797654940672, guid: 45545e962e890486eb0456a245195f2a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566797654940672, guid: 45545e962e890486eb0456a245195f2a, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116900248984994, guid: 45545e962e890486eb0456a245195f2a, type: 2}
+      propertyPath: m_Name
+      value: LittleGirl
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116900248984994, guid: 45545e962e890486eb0456a245195f2a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 45545e962e890486eb0456a245195f2a, type: 2}
+  m_IsPrefabAsset: 0

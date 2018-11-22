@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
 
-    // assosiate, consultant, senior, princple 
-
-    public Transform groundCheck;// an invisible game object that is placed at the character sprite's feet
-    public LayerMask whatIsGround;// in the IDE set this to be every layer that is not in the "player" layer
+    public Transform groundCheck; // an invisible game object that is placed at the character sprite's feet
+    public LayerMask whatIsGround; // in the IDE set this to be every layer that is not in the "player" layer
     public bool facingRight = true;
     bool grounded = false;
     float groundRadius = 0.2f;
@@ -60,8 +58,6 @@ public class PlayerControl : MonoBehaviour {
 
     void Update() {
 
-
-
         // detection of imput, use Update
         if (Input.GetButtonDown("Jump") && ((playerStats.jumpCount == 0 || (playerStats.jumpCount== 1 && playerStats.doubleJumpEnabled))) ) {
 
@@ -70,11 +66,6 @@ public class PlayerControl : MonoBehaviour {
         }
 
         AnimateChacter(rBody2D.velocity.x);
-
-        //if (grounded)
-        //{
-        //    playerStats.jumpCount = 0;
-        //}
     }
 
     bool NeedsFlip(float move){

@@ -18,20 +18,18 @@ public class ThrowBomb : MonoBehaviour{
 
     void Update(){
 
-
         if (Input.GetButtonDown("Fire1") && playerStats.bombsLaid < playerStats.bombLimit) {
 
             playerStats.bombsLaid++;
 
             AudioSource.PlayClipAtPoint(throwBombClip, transform.position);
-
                 
             int xOffset = playerControl.facingRight ? 1 : -1;
             Vector3 bombSpawnPosition = new Vector3(transform.position.x+ xOffset, transform.position.y, transform.position.z);
 
             Instantiate(bombObject, bombSpawnPosition, transform.rotation);
         }
-
-
     } 
+
+
 }

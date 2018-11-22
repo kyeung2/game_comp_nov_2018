@@ -27,6 +27,4 @@ public class PlayerStats : MonoBehaviour {
         // The bomb heads up display should be enabled if the player has bombs, other it should be disabled.
         //  bombHUD.enabled = bombCount > 0;
     }
-
-
 }

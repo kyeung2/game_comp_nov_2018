@@ -11,18 +11,28 @@ public class Bomb : MonoBehaviour{
     public float fuseTime = 1.5f;
     public GameObject explosion;            // Prefab of explosion effect.
 
+<<<<<<< Updated upstream
     private ThrowBomb throwBombScript;              // Reference to the player's ThrowBomb script.
 
+=======
+    private ThrowBomb throwBomb;
+    private PlayerStats playerStats;
+   
+>>>>>>> Stashed changes
 
-    void Awake(){
 
-        if (GameObject.FindGameObjectWithTag("Player")){
-            throwBombScript = GameObject.FindGameObjectWithTag("Player").GetComponent<ThrowBomb>();
-        }
-    }
 
     void Start(){
-       
+
+
+        //TODO not sure why this is needed.
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        throwBomb = player.GetComponent<ThrowBomb>();
+        playerStats = player.GetComponent<PlayerStats>();
+
+        Debug.Log("throwBomb" + throwBomb.name);
+        Debug.Log("playerStats" + playerStats.name);
+
         // If the bomb has no parent, it has been laid by the player and should detonate.
         if (transform.root == transform){
             StartCoroutine(BombDetonation());
@@ -42,11 +52,17 @@ public class Bomb : MonoBehaviour{
         Explode();
     }
 
+<<<<<<< Updated upstream
 
     public void Explode() {
 
         // The player is now free to lay bombs when he has them.
         throwBombScript.bombLaid = false;
+=======
+    public void Explode() {
+    
+        playerStats.bombsLaid--;
+>>>>>>> Stashed changes
 
 
         // Find all the colliders on the Enemies layer within the bombRadius.

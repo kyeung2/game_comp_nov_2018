@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour {
     public int bombsLaid = 0;          
     public int bombLimit = 3;
     public float maxSpeed = 10f;
-    public float jumpForce = 700f;
+    public float jumpForce = 7f;
     public int jumpCount = 0;
     public bool doubleJumpEnabled = false;
 

@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
 
-	public float maxSpeed = 10f;
-    public float jumpForce = 700f;
+    // assosiate, consultant, senior, princple 
+
     public Transform groundCheck;// an invisible game object that is placed at the character sprite's feet
     public LayerMask whatIsGround;// in the IDE set this to be every layer that is not in the "player" layer
     public bool facingRight = true;
     bool grounded = false;
     float groundRadius = 0.2f;
-    int jumpCount = 0;
     Rigidbody2D rBody2D;
     Animator animator;
     SpriteRenderer spriteRenderer;
+    PlayerStats playerStats;
 
 
     void Start() {
@@ -22,24 +22,28 @@ public class PlayerControl : MonoBehaviour {
         rBody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerStats = GetComponent<PlayerStats>();
     }
 
     void FixedUpdate () {
+    
+        bool newGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-        if(grounded){
-            jumpCount = 0;
+        // have to add this guard in place only when transitioning into grounded we set this. As the jump count messes up due to timing issues
+        // with FixedUpdate and Update being called.
+        if(newGrounded && !grounded){
+            playerStats.jumpCount = 0;
         }
+        grounded = newGrounded;
 
         float move = Input.GetAxis("Horizontal");
-
         MoveCharacter(move);
         AnimateChacter(move);
     }
 
     void MoveCharacter(float moveX){
       
-        rBody2D.velocity = new Vector2(moveX * maxSpeed, rBody2D.velocity.y);
+        rBody2D.velocity = new Vector2(moveX * playerStats.maxSpeed, rBody2D.velocity.y);
     }
 
     void AnimateChacter(float move){
@@ -49,22 +53,28 @@ public class PlayerControl : MonoBehaviour {
         animator.SetFloat("Speed", Mathf.Abs(move));
 
         if (NeedsFlip(move)) {
+           
             Flip();
         }
     }
 
-    // TODO don't really understand why the tutorial had some code in FixedUpdate and some in Update... need to investigate
     void Update() {
 
-        // if pressing the jump button and you're grounded OR you haven't doubled jumped...
-        if ( jumpCount < 1 && Input.GetButtonDown("Jump")) {
 
-            // do the jump
-            rBody2D.AddForce(new Vector2(0, jumpForce));
-            jumpCount++;
+
+        // detection of imput, use Update
+        if (Input.GetButtonDown("Jump") && ((playerStats.jumpCount == 0 || (playerStats.jumpCount== 1 && playerStats.doubleJumpEnabled))) ) {
+
+            playerStats.jumpCount++;
+            rBody2D.AddForce(new Vector2(0, playerStats.jumpForce));
         }
 
         AnimateChacter(rBody2D.velocity.x);
+
+        //if (grounded)
+        //{
+        //    playerStats.jumpCount = 0;
+        //}
     }
 
     bool NeedsFlip(float move){

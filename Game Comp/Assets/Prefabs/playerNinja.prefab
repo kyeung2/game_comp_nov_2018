@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 95497393064024452}
   - component: {fileID: 114846465726084974}
   - component: {fileID: 114008664039778632}
+  - component: {fileID: 114426139312482440}
   m_Layer: 18
   m_Name: playerNinja
   m_TagString: Player
@@ -164,10 +165,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884fd7eb6430841a1bce6bac24952b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   bombLaid: 0
   bombCount: 100
+=======
+>>>>>>> Stashed changes
   throwBombClip: {fileID: 8300000, guid: ea044097a0fe847ed9bbea53c25b681b, type: 3}
   bombObject: {fileID: 1144684184650602, guid: 97e4ad6b883f449f7b648ca74caf8130, type: 2}
+--- !u!114 &114426139312482440
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1772341572525302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b74327c36b0b45bebe8d1d8b0fce500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 3
+  bombsLaid: 0
+  bombLimit: 2
+  maxSpeed: 10
+  jumpForce: 700
+  jumpCount: 0
+  doubleJumpEnabled: 0
 --- !u!114 &114846465726084974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,8 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368c7a159b5174e12836310d24a547e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
-  jumpForce: 700
   groundCheck: {fileID: 4163080439210446}
   whatIsGround:
     serializedVersion: 2

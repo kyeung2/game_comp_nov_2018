@@ -29,7 +29,10 @@ public class ThrowBomb : MonoBehaviour{
     void Update(){
 
         // If the bomb laying button is pressed, the bomb hasn't been laid and there's a bomb to lay...
-        if (Input.GetButtonDown("Fire1") && !bombLaid && bombCount > 0){
+        if (Input.GetButtonDown("Fire1")
+            //TODO just want to see a few bombs on screen for now.
+          // && !bombLaid && bombCount > 0
+           ){
 
             // Decrement the number of bombs.
             bombCount--;
@@ -43,6 +46,9 @@ public class ThrowBomb : MonoBehaviour{
                 // Instantiate the bomb prefab.
                 int xOffset = playerControlScript.facingRight ? 1 : -1;
             Vector3 bombSpawnPosition = new Vector3(transform.position.x+ xOffset, transform.position.y, transform.position.z);
+
+
+
             Instantiate(bombObject, bombSpawnPosition, transform.rotation);
         }
 

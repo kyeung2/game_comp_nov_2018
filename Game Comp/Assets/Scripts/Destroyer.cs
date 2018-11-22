@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destroyer : MonoBehaviour
-{
+public class Destroyer : MonoBehaviour{
 
     public bool destroyOnAwake;         // Whether or not this gameobject should destroyed after a delay, on Awake.
     public float awakeDestroyDelay;     // The delay for destroying it on Awake.

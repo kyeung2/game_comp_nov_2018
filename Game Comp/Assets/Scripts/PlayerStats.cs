@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
 
-    public int healthPoints = 5;
-    public int bombsLaid = 0;          
+    [Range(1, 5)]
+    public int healthPoints = 3;
+    public int bombsLaid = 0;
+    [Range(1, 5)]
     public int bombLimit = 3;
-    public float maxSpeed = 10f;
-    public float jumpForce = 7f;
+    [Range(5, 15)]
+    public int maxSpeed = 10;
+    [Range(3, 10)]
+    public int jumpForce = 7;
     public int jumpCount = 0;
     public bool doubleJumpEnabled = false;
 
@@ -22,7 +26,6 @@ public class PlayerStats : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
 
         // The bomb heads up display should be enabled if the player has bombs, other it should be disabled.
         //  bombHUD.enabled = bombCount > 0;

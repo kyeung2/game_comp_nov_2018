@@ -62,7 +62,7 @@ public class PlayerControl : MonoBehaviour {
         if (Input.GetButtonDown("Jump") && ((playerStats.jumpCount == 0 || (playerStats.jumpCount== 1 && playerStats.doubleJumpEnabled))) ) {
 
             playerStats.jumpCount++;
-            rBody2D.AddForce(new Vector2(0, playerStats.jumpForce));
+            rBody2D.AddForce(new Vector2(0, playerStats.jumpForce * 100));
         }
 
         AnimateChacter(rBody2D.velocity.x);

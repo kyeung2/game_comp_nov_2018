@@ -182,7 +182,7 @@ MonoBehaviour:
   bombsLaid: 0
   bombLimit: 2
   maxSpeed: 10
-  jumpForce: 7
+  jumpForce: 5.72
   jumpCount: 0
   doubleJumpEnabled: 0
 --- !u!114 &114846465726084974

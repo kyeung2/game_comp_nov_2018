@@ -8,24 +8,24 @@ AnimatorController:
   m_Name: nin_animator
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Speed
+  - m_Name: speed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Ground
+    m_Controller: {fileID: 0}
+  - m_Name: ground
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: vSpeed
+    m_Controller: {fileID: 0}
+  - m_Name: vspeed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -140,7 +140,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Speed
     m_Mirror: 0
-  m_BlendParameter: vSpeed
+  m_BlendParameter: vspeed
   m_BlendParameterY: Speed
   m_MinThreshold: -13
   m_MaxThreshold: 8
@@ -155,7 +155,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: Speed
+    m_ConditionEvent: speed
     m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102076607804978230}
@@ -179,7 +179,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: Speed
+    m_ConditionEvent: speed
     m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102927225918714318}
@@ -203,7 +203,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Ground
+    m_ConditionEvent: ground
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102597886951124358}
@@ -227,7 +227,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Ground
+    m_ConditionEvent: ground
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102076607804978230}
@@ -275,7 +275,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: jump and fall
+  m_Name: jump blend
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -334,7 +334,7 @@ AnimatorStateMachine:
     m_Position: {x: 252, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102927225918714318}
-    m_Position: {x: 516, y: 120, z: 0}
+    m_Position: {x: 576, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102597886951124358}
     m_Position: {x: 120, y: 252, z: 0}
@@ -344,7 +344,7 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: -132, y: 108, z: 0}
+  m_AnyStatePosition: {x: -156, y: 132, z: 0}
   m_EntryPosition: {x: 48, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

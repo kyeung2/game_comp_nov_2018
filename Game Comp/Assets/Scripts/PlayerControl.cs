@@ -15,6 +15,8 @@ public class PlayerControl : MonoBehaviour {
     PlayerStats playerStats;
 
 
+
+
     void Start() {
      
         rBody2D = GetComponent<Rigidbody2D>();
@@ -46,9 +48,9 @@ public class PlayerControl : MonoBehaviour {
 
     void AnimateChacter(float move){
     
-        animator.SetBool("Ground", grounded);
-        animator.SetFloat("vSpeed", rBody2D.velocity.y);
-        animator.SetFloat("Speed", Mathf.Abs(move));
+        animator.SetBool("ground", grounded);
+        animator.SetFloat("vspeed", rBody2D.velocity.y);
+        animator.SetFloat("speed", Mathf.Abs(move));
 
         if (NeedsFlip(move)) {
            

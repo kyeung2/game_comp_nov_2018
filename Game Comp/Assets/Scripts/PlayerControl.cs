@@ -15,8 +15,6 @@ public class PlayerControl : MonoBehaviour {
     PlayerStats playerStats;
 
 
-
-
     void Start() {
      
         rBody2D = GetComponent<Rigidbody2D>();

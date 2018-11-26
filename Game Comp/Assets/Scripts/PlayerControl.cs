@@ -25,9 +25,13 @@ public class PlayerControl : MonoBehaviour {
         playerStats = GetComponent<PlayerStats>();
     }
 
+    private bool deathAnimationTiggered = false;
+
     void FixedUpdate () {
     
         bool newGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+
+
 
         // have to add this guard in place only when transitioning into grounded we set this. As the jump count messes up due to timing issues
         // with FixedUpdate and Update being called.
@@ -36,9 +40,19 @@ public class PlayerControl : MonoBehaviour {
         }
         grounded = newGrounded;
 
-        float move = Input.GetAxis("Horizontal");
-        MoveCharacter(move);
-        AnimateChacter(move);
+        Debug.Log(grounded);
+
+
+        if (playerStats.healthPoints != 0)
+        {
+            float move = Input.GetAxis("Horizontal");
+            MoveCharacter(move);
+            AnimateChacter(move);
+        }else if(!deathAnimationTiggered)
+        {
+            deathAnimationTiggered = true;
+            animator.SetTrigger("death");
+        }
     }
 
     void MoveCharacter(float moveX){
@@ -52,22 +66,26 @@ public class PlayerControl : MonoBehaviour {
         animator.SetFloat("vspeed", rBody2D.velocity.y);
         animator.SetFloat("speed", Mathf.Abs(move));
 
+
+
         if (NeedsFlip(move)) {
            
             Flip();
         }
     }
 
-    void Update() {
+    void Update(){
 
-        // detection of imput, use Update
-        if (Input.GetButtonDown("Jump") && ((playerStats.jumpCount == 0 || (playerStats.jumpCount== 1 && playerStats.doubleJumpEnabled))) ) {
+        if (playerStats.healthPoints != 0){
 
-            playerStats.jumpCount++;
-            rBody2D.AddForce(new Vector2(0, playerStats.jumpForce * 100));
+            if (Input.GetButtonDown("Jump") && ((playerStats.jumpCount == 0 || (playerStats.jumpCount == 1 && playerStats.doubleJumpEnabled)))){
+
+                playerStats.jumpCount++;
+                rBody2D.AddForce(new Vector2(0, playerStats.jumpForce * 100));
+            }
+
+            AnimateChacter(rBody2D.velocity.x);
         }
-
-        AnimateChacter(rBody2D.velocity.x);
     }
 
     bool NeedsFlip(float move){

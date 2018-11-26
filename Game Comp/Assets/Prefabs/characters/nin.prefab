@@ -25,7 +25,8 @@ GameObject:
   - component: {fileID: 95637585289549344}
   - component: {fileID: 114362285168960036}
   - component: {fileID: 114222988206980094}
-  - component: {fileID: 114468125627181340}
+  - component: {fileID: 114820663303446924}
+  - component: {fileID: 114752244697291106}
   m_Layer: 18
   m_Name: nin
   m_TagString: Player
@@ -158,7 +159,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4151
   facingRight: 1
---- !u!114 &114468125627181340
+--- !u!114 &114752244697291106
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,12 +170,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b74327c36b0b45bebe8d1d8b0fce500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 3
-  healthPoints: 3
+  maxHealthPoints: 5
+  healthPoints: 5
+  bombsLaid: 0
+  bombLimit: 3
+  maxSpeed: 10
+  jumpForce: 7
+  jumpCount: 0
+  doubleJumpEnabled: 0
+  specific: {fileID: 114820663303446924}
+--- !u!114 &114820663303446924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1296537965039672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54e6929a68fc49d09174cf37f75f83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthPoints: 2
+  healthPoints: 2
   bombsLaid: 0
   bombLimit: 2
   maxSpeed: 10
-  jumpForce: 5
+  jumpForce: 6
   jumpCount: 0
   doubleJumpEnabled: 0
 --- !u!212 &212266225251757458

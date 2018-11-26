@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114289114868178290}
   - component: {fileID: 114614212340652014}
   - component: {fileID: 114823961421067506}
+  - component: {fileID: 114460062721776356}
   m_Layer: 18
   m_Name: rob
   m_TagString: Player
@@ -144,6 +145,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4151
   facingRight: 1
+--- !u!114 &114460062721776356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1031010630363974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54e6929a68fc49d09174cf37f75f83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthPoints: 6
+  healthPoints: 6
+  bombsLaid: 0
+  bombLimit: 3
+  maxSpeed: 7
+  jumpForce: 6
+  jumpCount: 0
+  doubleJumpEnabled: 0
 --- !u!114 &114614212340652014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,10 +193,11 @@ MonoBehaviour:
   healthPoints: 3
   bombsLaid: 0
   bombLimit: 2
-  maxSpeed: 10
-  jumpForce: 5
+  maxSpeed: 8
+  jumpForce: 6
   jumpCount: 0
   doubleJumpEnabled: 0
+  specific: {fileID: 114460062721776356}
 --- !u!212 &212861259619770166
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -1,35 +1,73 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
 
-    [Range(0, 5)]
-    public int maxHealthPoints = 3;
-    public int healthPoints = 3;
-    public int bombsLaid = 0;
+    public static int DEFAULT_MAX_HEALTH_POINTS = 5;
+    public static int DEFAULT_HEALTH_POINTS = 5;
+    public static int DEFAULT_BOMBS_LAID = 0;
+    public static int DEFAULT_BOMB_LIMIT = 3;
+    public static int DEFAULT_MAX_SPEED = 10;
+    public static int DEFAULT_JUMP_FORCE = 5;
+    public static int DEFAULT_JUMP_COUNT = 0;
+    public static bool DEFAULT_DOUBLE_JUMP_ENABLED = false;
+
+    [Range(0, 10)]
+    public int maxHealthPoints = DEFAULT_MAX_HEALTH_POINTS;
+    public int healthPoints = DEFAULT_HEALTH_POINTS;
+    public int bombsLaid = DEFAULT_BOMBS_LAID;
     [Range(1, 5)]
-    public int bombLimit = 3;
-    [Range(5, 15)]
-    public int maxSpeed = 10;
+    public int bombLimit = DEFAULT_BOMB_LIMIT;
+    [Range(3, 15)]
+    public int maxSpeed = DEFAULT_MAX_SPEED;
     [Range(3, 10)]
-    public int jumpForce = 7;
-    public int jumpCount = 0;
-    public bool doubleJumpEnabled = false;
+    public int jumpForce = DEFAULT_JUMP_FORCE;
+    public int jumpCount = DEFAULT_JUMP_COUNT;
+    public bool doubleJumpEnabled = DEFAULT_DOUBLE_JUMP_ENABLED;
 
+    public SpecificPlayerStats specific;
 
-    //TODO work on the UI
-    //private GUITexture bombHUD;         // Heads up display of whether the player has a bomb or not.
-
-    void Awake () {
-        //  bombHUD = GameObject.Find("ui_bombHUD").GetComponent<GUITexture>();
-
+    private void Awake()
+    {
+        ResetStats();
     }
 
-    // Update is called once per frame
-    void Update() {
+    public void ResetStats(){
 
-        // The bomb heads up display should be enabled if the player has bombs, other it should be disabled.
-        //  bombHUD.enabled = bombCount > 0;
+        //TODO Vito to supply this
+        //GameConfiguration gameConfiguration = new GameConfiguration();
+        GameConfiguration.CharacterStatsMode mode = GameConfiguration.CharacterStatsMode.Default;
+        if (mode == GameConfiguration.CharacterStatsMode.Default)
+        {
+
+            Debug.Log("defaulting the stats");
+            ResetDefaults();
+        }
+        else
+        {
+            Debug.Log("keeping character specific stats");
+            ResetSpecific();
+        }
+    }
+
+    void ResetDefaults(){
+        maxHealthPoints = DEFAULT_MAX_HEALTH_POINTS;
+        healthPoints = DEFAULT_HEALTH_POINTS;
+        bombsLaid = DEFAULT_BOMBS_LAID;
+        bombLimit = DEFAULT_BOMB_LIMIT;
+        maxSpeed = DEFAULT_MAX_SPEED;
+        jumpForce = DEFAULT_JUMP_FORCE;
+        jumpCount = DEFAULT_JUMP_COUNT;
+        doubleJumpEnabled = DEFAULT_DOUBLE_JUMP_ENABLED;
+    }
+
+    void ResetSpecific(){
+        maxHealthPoints = specific.maxHealthPoints;
+        healthPoints = specific.healthPoints;
+        bombsLaid = specific.bombsLaid;
+        bombLimit = specific.bombLimit;
+        maxSpeed = specific.maxSpeed;
+        jumpForce = specific.jumpForce;
+        jumpCount = specific.jumpCount;
+        doubleJumpEnabled = specific.doubleJumpEnabled;
     }
 }

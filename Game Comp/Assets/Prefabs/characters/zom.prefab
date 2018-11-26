@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114947275576038318}
   - component: {fileID: 114290971115898410}
   - component: {fileID: 114467999374740266}
+  - component: {fileID: 114524765873775522}
   m_Layer: 18
   m_Name: zom
   m_TagString: Player
@@ -153,12 +154,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b74327c36b0b45bebe8d1d8b0fce500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 3
-  healthPoints: 3
+  maxHealthPoints: 10
+  healthPoints: 10
   bombsLaid: 0
   bombLimit: 2
-  maxSpeed: 10
-  jumpForce: 5
+  maxSpeed: 3
+  jumpForce: 3
+  jumpCount: 0
+  doubleJumpEnabled: 0
+  specific: {fileID: 114524765873775522}
+--- !u!114 &114524765873775522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1757754196001856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54e6929a68fc49d09174cf37f75f83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthPoints: 10
+  healthPoints: 10
+  bombsLaid: 0
+  bombLimit: 5
+  maxSpeed: 3
+  jumpForce: 3
   jumpCount: 0
   doubleJumpEnabled: 0
 --- !u!114 &114947275576038318

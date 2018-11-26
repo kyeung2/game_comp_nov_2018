@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114152167981938820}
   - component: {fileID: 114080794294007620}
   - component: {fileID: 114234695977815816}
+  - component: {fileID: 114394872070814018}
   m_Layer: 18
   m_Name: san
   m_TagString: Player
@@ -173,7 +174,27 @@ MonoBehaviour:
   healthPoints: 3
   bombsLaid: 0
   bombLimit: 2
-  maxSpeed: 10
+  maxSpeed: 6
+  jumpForce: 5
+  jumpCount: 0
+  doubleJumpEnabled: 0
+  specific: {fileID: 114394872070814018}
+--- !u!114 &114394872070814018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1570737308896304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54e6929a68fc49d09174cf37f75f83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthPoints: 7
+  healthPoints: 7
+  bombsLaid: 0
+  bombLimit: 3
+  maxSpeed: 5
   jumpForce: 5
   jumpCount: 0
   doubleJumpEnabled: 0

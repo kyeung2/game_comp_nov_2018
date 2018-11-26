@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b74327c36b0b45bebe8d1d8b0fce500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealthPoints: 3
   healthPoints: 3
   bombsLaid: 0
   bombLimit: 2

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
 
-    [Range(1, 5)]
+    [Range(0, 5)]
+    public int maxHealthPoints = 3;
     public int healthPoints = 3;
     public int bombsLaid = 0;
     [Range(1, 5)]
@@ -15,6 +16,7 @@ public class PlayerStats : MonoBehaviour {
     public int jumpForce = 7;
     public int jumpCount = 0;
     public bool doubleJumpEnabled = false;
+
 
     //TODO work on the UI
     //private GUITexture bombHUD;         // Heads up display of whether the player has a bomb or not.

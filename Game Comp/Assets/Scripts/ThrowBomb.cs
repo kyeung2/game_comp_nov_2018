@@ -29,7 +29,8 @@ public class ThrowBomb : MonoBehaviour{
 
             GameObject bombInstance = Instantiate(bomb, bombSpawnPosition, transform.rotation);
             Bomb bombScript = bombInstance.GetComponent<Bomb>();
-            bombScript.DetonateFused(playerStats);
+            bombScript.InitBomb(playerStats);
+            bombScript.DetonateFused();
         }
     } 
 

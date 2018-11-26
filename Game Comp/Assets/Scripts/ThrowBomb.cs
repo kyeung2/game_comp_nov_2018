@@ -5,15 +5,15 @@ using UnityEngine;
 public class ThrowBomb : MonoBehaviour{
 
     public AudioClip throwBombClip;     // Sound for when the player lays a bomb.
-    public GameObject bombObject;       // Prefab of the bomb.
-
+    public GameObject bomb;       // Prefab of the bomb.
+    public GameObject characer;
     private PlayerControl playerControl;
     private PlayerStats playerStats;
 
     void Awake(){
 
-        playerControl = GetComponent<PlayerControl>();
-        playerStats = GetComponent<PlayerStats>();
+        playerControl = characer.GetComponent<PlayerControl>();
+        playerStats = characer.GetComponent<PlayerStats>();
     }
 
     void Update(){
@@ -27,7 +27,9 @@ public class ThrowBomb : MonoBehaviour{
             int xOffset = playerControl.facingRight ? 1 : -1;
             Vector3 bombSpawnPosition = new Vector3(transform.position.x+ xOffset, transform.position.y, transform.position.z);
 
-            Instantiate(bombObject, bombSpawnPosition, transform.rotation);
+            GameObject bombInstance = Instantiate(bomb, bombSpawnPosition, transform.rotation);
+            Bomb bombScript = bombInstance.GetComponent<Bomb>();
+            bombScript.DetonateFused(playerStats);
         }
     } 
 

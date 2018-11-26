@@ -156,7 +156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwBombClip: {fileID: 8300000, guid: ea044097a0fe847ed9bbea53c25b681b, type: 3}
-  bombObject: {fileID: 1144684184650602, guid: 97e4ad6b883f449f7b648ca74caf8130, type: 2}
+  bomb: {fileID: 1144684184650602, guid: 97e4ad6b883f449f7b648ca74caf8130, type: 2}
+  characer: {fileID: 1031010630363974}
 --- !u!114 &114823961421067506
 MonoBehaviour:
   m_ObjectHideFlags: 1

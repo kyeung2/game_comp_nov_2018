@@ -10,37 +10,25 @@ public class Bomb : MonoBehaviour{
     public float fuseTime = 1.5f;
     public GameObject explosion;            // Prefab of explosion effect.
 
-    private ThrowBomb throwBomb;
-    private PlayerStats playerStats;
-
-    void Start(){
-
-        //TODO not sure why this is needed.
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        throwBomb = player.GetComponent<ThrowBomb>();
-        playerStats = player.GetComponent<PlayerStats>();
-        
-        // If the bomb has no parent, it has been laid by the player and should detonate.
-        if (transform.root == transform){
-            StartCoroutine(BombDetonation());
-        }
+    public void DetonateFused(PlayerStats playerStats) {
+        StartCoroutine(FusedCoroutine( playerStats));
     }
 
-    IEnumerator BombDetonation(){
-     
+    private  IEnumerator FusedCoroutine(PlayerStats playerStats) {
+   
         // Play the fuse audioclip.
         AudioSource.PlayClipAtPoint(fuse, transform.position);
 
         // Wait for 2 seconds.
         yield return new WaitForSeconds(fuseTime);
-        Explode();
+        Detonate(playerStats);
     }
 
-    public void Explode() {
+    public void Detonate(PlayerStats playerStats) {
     
         playerStats.bombsLaid--;
 
-        InflictDamage();
+        InflictDamage(playerStats);
 
         // Create a quaternion with a random rotation in the z-axis.
         Quaternion randomRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
@@ -52,7 +40,8 @@ public class Bomb : MonoBehaviour{
         Destroy(gameObject);
     }
 
-    void InflictDamage(){
+    void InflictDamage(PlayerStats playerStats)
+    {
         //TODO
 
         // Find all the colliders on the Enemies layer within the bombRadius.

@@ -31,17 +31,12 @@ public class PlayerControl : MonoBehaviour {
     
         bool newGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
-
-
         // have to add this guard in place only when transitioning into grounded we set this. As the jump count messes up due to timing issues
         // with FixedUpdate and Update being called.
         if(newGrounded && !grounded){
             playerStats.jumpCount = 0;
         }
         grounded = newGrounded;
-
-        Debug.Log(grounded);
-
 
         if (playerStats.healthPoints != 0)
         {
@@ -67,7 +62,6 @@ public class PlayerControl : MonoBehaviour {
         animator.SetFloat("speed", Mathf.Abs(move));
 
 
-
         if (NeedsFlip(move)) {
            
             Flip();
@@ -81,7 +75,8 @@ public class PlayerControl : MonoBehaviour {
             if (Input.GetButtonDown("Jump") && ((playerStats.jumpCount == 0 || (playerStats.jumpCount == 1 && playerStats.doubleJumpEnabled)))){
 
                 playerStats.jumpCount++;
-                rBody2D.AddForce(new Vector2(0, playerStats.jumpForce * 100));
+                rBody2D.velocity = new Vector2(rBody2D.velocity.x, 0);
+                rBody2D.AddForce(new Vector2(0, playerStats.jumpForce * 200));
             }
 
             AnimateChacter(rBody2D.velocity.x);

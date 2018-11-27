@@ -13,6 +13,9 @@ public class PlayerControl : MonoBehaviour {
     Animator animator;
     SpriteRenderer spriteRenderer;
     PlayerStats playerStats;
+    PlayAudio playAudio;
+
+    public AudioSource runSound;
 
 
     void Start() {
@@ -21,30 +24,33 @@ public class PlayerControl : MonoBehaviour {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerStats = GetComponent<PlayerStats>();
+        playAudio = GetComponent<PlayAudio>();
     }
 
     private bool deathAnimationTiggered = false;
 
     void FixedUpdate () {
-    
+
         bool newGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
         // have to add this guard in place only when transitioning into grounded we set this. As the jump count messes up due to timing issues
         // with FixedUpdate and Update being called.
         if(newGrounded && !grounded){
+
+            playAudio.Landing();// no land animation to attach this to so add here
             playerStats.jumpCount = 0;
         }
         grounded = newGrounded;
 
-        if (playerStats.healthPoints > 0)
-        {
+        if (playerStats.healthPoints > 0){
+           
             float move = Input.GetAxis("Horizontal");
             MoveCharacter(move);
             AnimateChacter(move);
-        }else if(!deathAnimationTiggered)
-        {
+        }else if(!deathAnimationTiggered){
+
             deathAnimationTiggered = true;
-            animator.SetTrigger("death");
+            animator.SetTrigger("death");// audio triggered in animation
         }
     }
 
@@ -55,6 +61,7 @@ public class PlayerControl : MonoBehaviour {
 
     void AnimateChacter(float move){
     
+        // most animations will play correct sounds.
         animator.SetBool("ground", grounded);
         animator.SetFloat("vspeed", rBody2D.velocity.y);
         animator.SetFloat("speed", Mathf.Abs(move));
@@ -72,6 +79,7 @@ public class PlayerControl : MonoBehaviour {
 
             if (Input.GetButtonDown("Jump") && ((playerStats.jumpCount == 0 || (playerStats.jumpCount == 1 && playerStats.doubleJumpEnabled)))){
 
+                playAudio.Jump();// because of blend animation, sound played here.
                 playerStats.jumpCount++;
                 rBody2D.velocity = new Vector2(rBody2D.velocity.x, 0);
                 rBody2D.AddForce(new Vector2(0, playerStats.jumpForce * 200));

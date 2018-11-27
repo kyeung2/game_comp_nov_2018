@@ -12,8 +12,9 @@ public class Bomb : MonoBehaviour{
     private bool detonated = false;
 
     private PlayerStats selfPlayerStats;
-    public void InitBomb(PlayerStats selfPlayerStats)
-    {
+
+    public void InitBomb(PlayerStats selfPlayerStats) {
+
         this.selfPlayerStats =  selfPlayerStats;
     } 
 
@@ -75,7 +76,9 @@ public class Bomb : MonoBehaviour{
             if (rb != null && rb.tag == "Player") {
 
                 PlayerStats playerStats = rb.gameObject.GetComponent<PlayerStats>();
+                PlayAudio playAudio = rb.gameObject.GetComponent<PlayAudio>();
                 if (playerStats.healthPoints > 0){
+                    playAudio.Hurt();// no hurt animation currently so add sound here.
                     playerStats.healthPoints--;
                 }
 

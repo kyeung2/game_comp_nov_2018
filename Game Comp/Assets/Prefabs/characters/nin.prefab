@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 95637585289549344}
   - component: {fileID: 114362285168960036}
   - component: {fileID: 114222988206980094}
+  - component: {fileID: 82479475882100714}
+  - component: {fileID: 114629453464151786}
   - component: {fileID: 114820663303446924}
   - component: {fileID: 114752244697291106}
   m_Layer: 18
@@ -33,7 +35,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1910971773968556
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,7 +58,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1296537965039672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.945812, y: -0.49057758, z: -4.07}
+  m_LocalPosition: {x: -22.764738, y: 2.4074326, z: -4.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4772387641728438}
@@ -111,6 +113,101 @@ CapsuleCollider2D:
   m_Offset: {x: -0.014994621, y: 0.009418488}
   m_Size: {x: 1.9809246, y: 4.408837}
   m_Direction: 0
+--- !u!82 &82479475882100714
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1296537965039672}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 46fee4e0cb3fb48efa486ba9548c49f4, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 2.737337
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95637585289549344
 Animator:
   serializedVersion: 3
@@ -140,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884fd7eb6430841a1bce6bac24952b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwBombClip: {fileID: 8300000, guid: ea044097a0fe847ed9bbea53c25b681b, type: 3}
+  throwBombClip: {fileID: 0}
   bomb: {fileID: 1144684184650602, guid: 97e4ad6b883f449f7b648ca74caf8130, type: 2}
   characer: {fileID: 1296537965039672}
 --- !u!114 &114362285168960036
@@ -159,6 +256,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4151
   facingRight: 1
+  runSound: {fileID: 0}
+--- !u!114 &114629453464151786
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1296537965039672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3201b642e7a4c418b0537ed3446f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jump: {fileID: 8300000, guid: f22939800e1504634b199cf3488a0ca5, type: 3}
+  run: {fileID: 82479475882100714}
+  hurt: {fileID: 8300000, guid: 52cb69d41a4154945ba447048acf60fd, type: 3}
+  death: {fileID: 8300000, guid: c5607cebd0aa3439a9d40cfc0ba1f72c, type: 3}
+  landing: {fileID: 8300000, guid: d09fa9df97d044280aba3db17e38175d, type: 3}
 --- !u!114 &114752244697291106
 MonoBehaviour:
   m_ObjectHideFlags: 1

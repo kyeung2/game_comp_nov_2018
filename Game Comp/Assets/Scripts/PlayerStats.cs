@@ -35,7 +35,7 @@ public class PlayerStats : MonoBehaviour {
 
         //TODO Vito to supply this
         //GameConfiguration gameConfiguration = new GameConfiguration();
-        GameConfiguration.CharacterStatsMode mode = GameConfiguration.CharacterStatsMode.Default;
+        GameConfiguration.CharacterStatsMode mode = GameConfiguration.CharacterStatsMode.CharacterSpecific;
         if (mode == GameConfiguration.CharacterStatsMode.Default)
         {
 

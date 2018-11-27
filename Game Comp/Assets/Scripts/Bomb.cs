@@ -54,7 +54,6 @@ public class Bomb : MonoBehaviour{
 
         // early deontate other bombs
         Collider2D[] otherBombs = Physics2D.OverlapCircleAll(transform.position, bombRadius, 1 << LayerMask.NameToLayer("Forground"));
-
         foreach (Collider2D otherBomb in otherBombs){
 
             Rigidbody2D rb = otherBomb.GetComponent<Rigidbody2D>();
@@ -62,7 +61,7 @@ public class Bomb : MonoBehaviour{
 
                 Bomb otherBombScript = rb.GetComponent<Bomb>();
                 if (this != otherBombScript){
-                 
+
                     otherBombScript.Detonate();
                 }
             }
@@ -75,7 +74,11 @@ public class Bomb : MonoBehaviour{
             Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
             if (rb != null && rb.tag == "Player") {
 
-                rb.gameObject.GetComponent<PlayerStats>().healthPoints--;
+                PlayerStats playerStats = rb.gameObject.GetComponent<PlayerStats>();
+                if (playerStats.healthPoints > 0){
+                    playerStats.healthPoints--;
+                }
+
                 // Find a vector from the bomb to the enemy.
                 Vector3 deltaPos = rb.transform.position - transform.position;
                 // Apply a force in this direction with a magnitude of bombForce.

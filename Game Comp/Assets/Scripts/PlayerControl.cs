@@ -36,7 +36,7 @@ public class PlayerControl : MonoBehaviour {
         }
         grounded = newGrounded;
 
-        if (playerStats.healthPoints != 0)
+        if (playerStats.healthPoints > 0)
         {
             float move = Input.GetAxis("Horizontal");
             MoveCharacter(move);
@@ -68,7 +68,7 @@ public class PlayerControl : MonoBehaviour {
 
     void Update(){
 
-        if (playerStats.healthPoints != 0){
+        if (playerStats.healthPoints > 0){
 
             if (Input.GetButtonDown("Jump") && ((playerStats.jumpCount == 0 || (playerStats.jumpCount == 1 && playerStats.doubleJumpEnabled)))){
 

@@ -90,9 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombRadius: 5
-  bombForce: 7
+  bombForce: 2
   fuse: {fileID: 8300000, guid: 316850c54d4634860825c29ead9597dd, type: 3}
-  fuseTime: 5
+  fuseTime: 1.5
   explosion: {fileID: 1627544532926806, guid: fc71eebb317c24ec38f9150920ce144d, type: 2}
 --- !u!212 &212914572363794940
 SpriteRenderer:

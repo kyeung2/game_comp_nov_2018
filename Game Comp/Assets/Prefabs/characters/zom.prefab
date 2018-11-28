@@ -58,7 +58,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1757754196001856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.010831, y: 2.1661365, z: -4.07}
+  m_LocalPosition: {x: -22.729267, y: 1.6593082, z: -4.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4725167410813222}
@@ -122,7 +122,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c367bca2a704c4d9f900d305948ae2fb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5059a101767104ff7a87c62ebcfef4fc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -237,11 +237,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3201b642e7a4c418b0537ed3446f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump: {fileID: 8300000, guid: 6dfcaeb11ab334952a92ce848a4f0151, type: 3}
-  run: {fileID: 82223875028080664}
-  hurt: {fileID: 8300000, guid: 8b992286f733246ff9df748ec6a563fa, type: 3}
-  death: {fileID: 8300000, guid: ca915d4c3a167434fa6a73fe83b132e3, type: 3}
-  landing: {fileID: 8300000, guid: 664f65391c1594b37aeffef5c3ce93b3, type: 3}
+  jump: {fileID: 8300000, guid: f8ef16c850f5b4e0a820a2eff18eba9b, type: 3}
+  hurt: {fileID: 8300000, guid: 30c300f57142942ad8b489a6de94a606, type: 3}
+  death: {fileID: 8300000, guid: b8195c05a5ec8466d83bddbdb14a54c6, type: 3}
+  landing: {fileID: 8300000, guid: 174bf023b25d04d3b83d0adcc01349bd, type: 3}
+  footStep: {fileID: 8300000, guid: c59013718493047519eb300e7e945b9b, type: 3}
 --- !u!114 &114290971115898410
 MonoBehaviour:
   m_ObjectHideFlags: 1

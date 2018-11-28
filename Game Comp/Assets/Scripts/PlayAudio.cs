@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 // functions to allow animations to play correct sound
+[RequireComponent(typeof(AudioSource))]
 public class PlayAudio : MonoBehaviour{
 
     public AudioClip jump;
@@ -9,17 +10,23 @@ public class PlayAudio : MonoBehaviour{
     public AudioClip death;
     public AudioClip landing;
 
+    void Start(){
+        run = GetComponent<AudioSource>();
+    }
+
     public void RunLoop(){
-        if (!run.isPlaying){
-            run.loop = true;
+        if (!run.isPlaying && !Input.GetButtonDown("Jump"))
+        {
             run.Play();
         }
     }
 
     public void RunLoopStop(){
-        if (run.isPlaying) { 
+        //this doesnt work too well as its about to start playing
+        if (run.isPlaying){
             run.Stop();
         }
+
     }
 
     public void Idle(){

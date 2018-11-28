@@ -18,7 +18,7 @@ public class ThrowBomb : MonoBehaviour{
 
     void Update(){
 
-        if (Input.GetButtonDown("Fire1") && playerStats.bombsLaid < playerStats.bombLimit) {
+        if (playerStats.healthPoints>0 && Input.GetButtonDown("Fire1") && playerStats.bombsLaid < playerStats.bombLimit) {
 
             playerStats.bombsLaid++;
 

@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 95014540479583934}
   - component: {fileID: 114947275576038318}
   - component: {fileID: 114290971115898410}
-  - component: {fileID: 82223875028080664}
+  - component: {fileID: 82415334332080934}
   - component: {fileID: 114195413750561956}
   - component: {fileID: 114524765873775522}
   - component: {fileID: 114467999374740266}
@@ -113,7 +113,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.16724443, y: -0.2828536}
   m_Size: {x: 2.2854223, y: 4.2490554}
   m_Direction: 0
---- !u!82 &82223875028080664
+--- !u!82 &82415334332080934
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,17 +122,17 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5059a101767104ff7a87c62ebcfef4fc, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 2.6292295
+  MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -311,6 +311,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4151
   facingRight: 1
+  grounded: 0
   runSound: {fileID: 0}
 --- !u!212 &212747156647635196
 SpriteRenderer:

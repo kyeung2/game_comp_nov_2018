@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-// functions to allow animations to play correct sound
+[RequireComponent(typeof(AudioSource)), RequireComponent(typeof(PlayerControl))]
 public class PlayAudio : MonoBehaviour{
 
     public AudioClip jump;
@@ -9,18 +9,28 @@ public class PlayAudio : MonoBehaviour{
     public AudioClip landing;
     public AudioClip footStep;
 
-   
+    AudioSource audioSource;
+    PlayerControl playerControl;
+
+    void Start(){
+        audioSource = GetComponent<AudioSource>();
+        playerControl = GetComponent<PlayerControl>();
+    }
 
     public void Idle(){
     }
 
     public void FoodStep(){
-        if (!Input.GetButtonDown("Jump")){
+        if (playerControl.grounded)
+        {
             playClip(footStep, transform.position);
         }
+
     }
 
     public void Jump(){
+
+
         playClip(jump, transform.position);
     }
 
@@ -37,6 +47,6 @@ public class PlayAudio : MonoBehaviour{
     }
 
     void playClip(AudioClip clip, Vector3 point){
-        AudioSource.PlayClipAtPoint(clip, point);
+        audioSource.PlayOneShot(clip);
     }
 }

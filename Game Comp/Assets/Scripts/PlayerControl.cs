@@ -7,7 +7,7 @@ public class PlayerControl : MonoBehaviour {
     public Transform groundCheck; // an invisible game object that is placed at the character sprite's feet
     public LayerMask whatIsGround; // in the IDE set this to be every layer that is not in the "player" layer
     public bool facingRight = true;
-    bool grounded = false;
+    public bool grounded = false;
     float groundRadius = 0.2f;
     Rigidbody2D rBody2D;
     Animator animator;
